@@ -127,7 +127,6 @@ close_tray() {
   local pipe="${__runtime}/tray.icon"
 
   if ! ( [ -f "$pid" ] && kill -s TERM "$(cat "$pid")" &>/dev/null ); then
-    # FIX-ME: This will never work, needs to traverse the process tree
     if [ "$(cat "/proc/${PPID}/comm")" == "mktrayicon" ]; then
       kill -s TERM "$PPID" || true 
     fi

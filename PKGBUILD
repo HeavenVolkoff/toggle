@@ -1,6 +1,6 @@
 # Maintainer: Vítor Vasconcellos <vasconcellos.dev@gmail.com>
 pkgname=toggle-git
-pkgver=r5.f2aa253
+pkgver=r6.8a48643
 pkgrel=1
 pkgdesc="Simple Bash scripts for toggling camera and mic on/off"
 arch=('any')

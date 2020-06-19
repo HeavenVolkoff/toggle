@@ -11,11 +11,11 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # Script's directory
-readonly __dir=$(CDPATH="" cd -- "$(dirname -- "$(realpath -- "$0")")" && pwd)
+readonly __dir="$(CDPATH="" cd -- "$(dirname -- "$(realpath -- "$0")")" && pwd)"
+# Script's name
+readonly __name="$(basename -- "$(realpath -- "$0")")"
 # Script's absolute path
-readonly __file="${__dir}/$(basename -- "$(realpath -- "$0")")"
-# Program name
-readonly __name="$(basename "$0")"
+readonly __file="${__dir}/${__name}"
 # Runtime directory
 readonly __runtime="${XDG_RUNTIME_DIR:-/tmp}/${__name}"
 

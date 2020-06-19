@@ -1,6 +1,6 @@
 # Maintainer: Vítor Vasconcellos <vasconcellos.dev@gmail.com>
 pkgname=toggle-git
-pkgver=r1.e08f5ea
+pkgver=r4.9624df1
 pkgrel=1
 pkgdesc="Simple Bash scripts for toggling camera and mic on/off"
 arch=('any')
@@ -29,11 +29,11 @@ package() {
   local install_dir="${pkgdir}/opt/${pkgname%-git}"
 
   cd "$pkgname"
-  mkdir -p "$install_dir"
-  find -type -name "*.sh" -print0 | xargs -r0 -n 1 -I {} cp --parents {} "$install_dir"
+  mkdir -p "$install_dir" "${pkgdir}/usr/bin"
+  find . -type f -name "*.sh" -print0 | xargs -r0 -n 1 -I {} cp --parents {} "$install_dir"
   find "$install_dir" -type f -print0 | xargs -r0 chmod 644
   chmod a+x "${install_dir}/mic-toggle.sh" "${install_dir}/camera-toggle.sh"
-  ln -s "${install_dir}/mic-toggle.sh" /usr/sbin/mic-toggle
-  ln -s "${install_dir}/camera-toggle.sh" /usr/sbin/camera-toggle
+  ln -s "${install_dir}/mic-toggle.sh" "${pkgdir}/usr/bin/mic-toggle"
+  ln -s "${install_dir}/camera-toggle.sh" "${pkgdir}/usr/bin/camera-toggle"
   install -Dm644 LICENSE -t "${pkgdir}/usr/share/licenses/$pkgname"
 }

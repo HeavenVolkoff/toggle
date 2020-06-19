@@ -1,12 +1,12 @@
 # Maintainer: Vítor Vasconcellos <vasconcellos.dev@gmail.com>
 pkgname=toggle-git
-pkgver=r4.9624df1
+pkgver=r5.f2aa253
 pkgrel=1
 pkgdesc="Simple Bash scripts for toggling camera and mic on/off"
 arch=('any')
 url="https://github.com/HeavenVolkoff/toggle"
 license=('MIT')
-depends=('bash>=4' 'libpulse')
+depends=('bash>=4' 'coreutils' 'libpulse')
 optdepends=(
     'libnotify: Notification support'
     'mktrayicon-git: Tray icon support'
